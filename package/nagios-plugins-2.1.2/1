@@ -1,0 +1,149 @@
+Making install in gl
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make  install-recursive
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make[3]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make[4]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+if test yes = no; then \
+  case 'linux-gnu' in \
+    darwin[56]*) \
+      need_charset_alias=true ;; \
+    darwin* | cygwin* | mingw* | pw32* | cegcc*) \
+      need_charset_alias=false ;; \
+    *) \
+      need_charset_alias=true ;; \
+  esac ; \
+else \
+  need_charset_alias=false ; \
+fi ; \
+if $need_charset_alias; then \
+  /bin/sh ../build-aux/mkinstalldirs /usr/local/nagios/lib ; \
+fi ; \
+if test -f /usr/local/nagios/lib/charset.alias; then \
+  sed -f ref-add.sed /usr/local/nagios/lib/charset.alias > /usr/local/nagios/lib/charset.tmp ; \
+  /usr/bin/install -c  -m 644 /usr/local/nagios/lib/charset.tmp /usr/local/nagios/lib/charset.alias ; \
+  rm -f /usr/local/nagios/lib/charset.tmp ; \
+else \
+  if $need_charset_alias; then \
+    sed -f ref-add.sed charset.alias > /usr/local/nagios/lib/charset.tmp ; \
+    /usr/bin/install -c  -m 644 /usr/local/nagios/lib/charset.tmp /usr/local/nagios/lib/charset.alias ; \
+    rm -f /usr/local/nagios/lib/charset.tmp ; \
+  fi ; \
+fi
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make[3]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/gl'
+Making install in tap
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/tap'
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/tap'
+make[2]: Nothing to be done for `install-exec-am'.
+test -z "/usr/local/nagios/include" || /usr/bin/mkdir -p "/usr/local/nagios/include"
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/tap'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/tap'
+Making install in lib
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+Making install in .
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+make[3]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+Making install in tests
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/lib/tests'
+make[3]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/lib/tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/lib/tests'
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/lib/tests'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/lib'
+Making install in plugins
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+test -z "/usr/local/nagios/libexec" || /usr/bin/mkdir -p "/usr/local/nagios/libexec"
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c  check_apt check_cluster check_disk check_dummy check_http check_load check_mrtg check_mrtgtraf check_ntp check_ntp_peer check_nwstat check_overcr check_ping check_real check_smtp check_ssh check_tcp check_time check_ntp_time check_ups check_users negate urlize check_ide_smart check_uptime check_procs check_nagios check_by_ssh check_swap check_nt '/usr/local/nagios/libexec'
+libtool: install: /usr/bin/install -c check_apt /usr/local/nagios/libexec/check_apt
+libtool: install: /usr/bin/install -c check_cluster /usr/local/nagios/libexec/check_cluster
+libtool: install: /usr/bin/install -c check_disk /usr/local/nagios/libexec/check_disk
+libtool: install: /usr/bin/install -c check_dummy /usr/local/nagios/libexec/check_dummy
+libtool: install: /usr/bin/install -c check_http /usr/local/nagios/libexec/check_http
+libtool: install: /usr/bin/install -c check_load /usr/local/nagios/libexec/check_load
+libtool: install: /usr/bin/install -c check_mrtg /usr/local/nagios/libexec/check_mrtg
+libtool: install: /usr/bin/install -c check_mrtgtraf /usr/local/nagios/libexec/check_mrtgtraf
+libtool: install: /usr/bin/install -c check_ntp /usr/local/nagios/libexec/check_ntp
+libtool: install: /usr/bin/install -c check_ntp_peer /usr/local/nagios/libexec/check_ntp_peer
+libtool: install: /usr/bin/install -c check_nwstat /usr/local/nagios/libexec/check_nwstat
+libtool: install: /usr/bin/install -c check_overcr /usr/local/nagios/libexec/check_overcr
+libtool: install: /usr/bin/install -c check_ping /usr/local/nagios/libexec/check_ping
+libtool: install: /usr/bin/install -c check_real /usr/local/nagios/libexec/check_real
+libtool: install: /usr/bin/install -c check_smtp /usr/local/nagios/libexec/check_smtp
+libtool: install: /usr/bin/install -c check_ssh /usr/local/nagios/libexec/check_ssh
+libtool: install: /usr/bin/install -c check_tcp /usr/local/nagios/libexec/check_tcp
+libtool: install: /usr/bin/install -c check_time /usr/local/nagios/libexec/check_time
+libtool: install: /usr/bin/install -c check_ntp_time /usr/local/nagios/libexec/check_ntp_time
+libtool: install: /usr/bin/install -c check_ups /usr/local/nagios/libexec/check_ups
+libtool: install: /usr/bin/install -c check_users /usr/local/nagios/libexec/check_users
+libtool: install: /usr/bin/install -c negate /usr/local/nagios/libexec/negate
+libtool: install: /usr/bin/install -c urlize /usr/local/nagios/libexec/urlize
+libtool: install: /usr/bin/install -c check_ide_smart /usr/local/nagios/libexec/check_ide_smart
+libtool: install: /usr/bin/install -c check_uptime /usr/local/nagios/libexec/check_uptime
+libtool: install: /usr/bin/install -c check_procs /usr/local/nagios/libexec/check_procs
+libtool: install: /usr/bin/install -c check_nagios /usr/local/nagios/libexec/check_nagios
+libtool: install: /usr/bin/install -c check_by_ssh /usr/local/nagios/libexec/check_by_ssh
+libtool: install: /usr/bin/install -c check_swap /usr/local/nagios/libexec/check_swap
+libtool: install: /usr/bin/install -c check_nt /usr/local/nagios/libexec/check_nt
+make  install-exec-hook
+make[3]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+cd /usr/local/nagios/libexec && \
+for i in check_ftp check_imap check_nntp check_pop check_udp check_clamd check_simap check_spop check_jabber check_nntps check_ssmtp ; do rm -f $i; ln -s check_tcp $i ; done ;\
+if [ -x check_ldap ] ; then rm -f check_ldaps ; ln -s check_ldap check_ldaps ; fi
+make[3]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins'
+Making install in plugins-scripts
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-scripts'
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-scripts'
+test -z "/usr/local/nagios/libexec" || /usr/bin/mkdir -p "/usr/local/nagios/libexec"
+ /usr/bin/install -c  check_breeze check_disk_smb check_flexlm check_ircd check_log check_oracle check_rpc check_sensors check_wave check_ifstatus check_ifoperstatus check_mailq check_file_age utils.sh utils.pm '/usr/local/nagios/libexec'
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-scripts'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-scripts'
+Making install in plugins-root
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-root'
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-root'
+ /usr/bin/install -c  check_dhcp /usr/local/nagios/libexec/check_dhcp
+ chown root /usr/local/nagios/libexec/check_dhcp
+ chmod ug=rx,u+s /usr/local/nagios/libexec/check_dhcp
+ /usr/bin/install -c  check_icmp /usr/local/nagios/libexec/check_icmp
+ chown root /usr/local/nagios/libexec/check_icmp
+ chmod ug=rx,u+s /usr/local/nagios/libexec/check_icmp
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-root'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/plugins-root'
+Making install in po
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2/po'
+/usr/bin/mkdir -p /usr/local/nagios/share
+installing fr.gmo as /usr/local/nagios/share/locale/fr/LC_MESSAGES/nagios-plugins.mo
+installing de.gmo as /usr/local/nagios/share/locale/de/LC_MESSAGES/nagios-plugins.mo
+if test "nagios-plugins" = "gettext-tools"; then \
+  /usr/bin/mkdir -p /usr/local/nagios/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin    Makevars.template; do \
+    /usr/bin/install -c  -m 644 ./$file \
+		    /usr/local/nagios/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /usr/local/nagios/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2/po'
+make[1]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2'
+make[2]: Entering directory `/root/nagios/package/nagios-plugins-2.1.2'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2'
+make[1]: Leaving directory `/root/nagios/package/nagios-plugins-2.1.2'
