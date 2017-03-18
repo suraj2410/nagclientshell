@@ -2,20 +2,20 @@
 
 
 echo -e "Nagios Client installation script in progress.
----------Please run this script on a newly installed/clean system"
+---------Please run this script on a newly installed/clean system\n"
 
-read -p "Please enter the Nagios Monitoring server IP address" IP
+read -p "Please enter the Nagios Monitoring server IP address: " IP
 
 if [ "$IP" == "" ];then
-echo " You did not enter an IP address. Nagios client will only listen to localhost"
+echo -e " You did not enter an IP address. Nagios client will only listen to localhost\n"
 read -p "Do you wish to continue[Y/n]" wish
     case "$wish" in
 	   Y | y | "")
-	   echo "Proceeding further..."
+	   echo -e "Proceeding further...\n"
 	   ;;
 	   
 	   *)
-	   echo "Installation cancelled.."
+	   echo -e "Installation cancelled..\n"
 	   exit 0
 	esac
 fi
@@ -40,12 +40,12 @@ fi
 
 # Installing EPEL repository for CentOS 6
 
-rpm -ivh $PKG > /dev/null 2>&1 && echo "epel rpm installed" || echo "looks like epel is already installed"
+rpm -ivh $PKG > /dev/null 2>&1 && echo -e "epel rpm installed\n" || echo -e "looks like epel is already installed\n"
 
 
 #Installing CentOS dependencies for the Nagios client
 
-echo "Installing CentOS dependencies for the Nagios client"
+echo -e "Installing CentOS dependencies for the Nagios client\n"
 
 yum -y install gcc glibc glibc-common xinetd >> $LOGFILE 2>&1
 
@@ -53,30 +53,30 @@ yum -y install gcc glibc glibc-common xinetd >> $LOGFILE 2>&1
 
 #Installing and configuring Nagios user and group
 
-echo "Installing Nagios user and group"
+echo -e "Installing Nagios user and group\n"
 
 useradd -m nagios > /dev/null 2>&1
 
 
 #Compiling and installing Nagios Plugin
 
-echo "Compiling and installing Nagios Plugin 2.1.2"
+echo -e  "Compiling and installing Nagios Plugin 2.1.2\n"
 
-cd $PLUGINDIR
+cd $PLUGINSDIR
 
 ./configure &>> $LOGFILE && make &>> $LOGFILE  && make install &>> $LOGFILE
 
 RESULT=$?
 
 if [ $RESULT == 0 ];then
-    echo "Plugin complied and installed successfully"
+    echo -e "Plugin complied and installed successfully\n"
 else
-    echo "Plugin compilation and installation failed Please check $LOGFILE" && exit 1
+    echo -e "Plugin compilation and installation failed Please check $LOGFILE \n" && exit 1
 fi
 
-cd ..
+cd ../..
 
-echo "Changing file and directory ownerships"
+echo -e "Changing file and directory ownerships\n"
 
 chown nagios.nagios /usr/local/nagios
 
@@ -86,6 +86,7 @@ chown -R nagios.nagios /usr/local/nagios/libexec
 
 #Installing NRPE Plugin 
 
+echo -e "Installing NRPE Plugin now...\n"
 
 cd $NRPEDIR
 
@@ -94,9 +95,9 @@ cd $NRPEDIR
 RESULT=$?
 
 if [ $RESULT == 0 ];then
-    echo "Plugin Installed successfully"
+    echo -e "Plugin Installed successfully\n"
 else
-    echo "Plugin installation failed Please check $LOGFILE" && exit 1
+    echo -e "Plugin installation failed Please check $LOGFILE\n" && exit 1
 fi
 
 cd ..
@@ -104,7 +105,7 @@ cd ..
 
 # Inserting Nagios server IP to /xinedt conf file
 
-if [ "$IP" -ne "" ];then
+if [ ! -z "$IP" ];then
 
     sed -i "/only_from/ s/$/ $IP/" /etc/xinetd.d/nrpe
 fi
@@ -112,3 +113,8 @@ fi
 echo "nrpe            5666/tcp                 NRPE" >> /etc/services
 
 service xinetd restart
+
+echo -e "Installation of Nagios Client successfully completed...\n"
+
+echo -e "You may need to adjust the firewall rules to allow TCP port 5666"
+
