@@ -1,8 +1,8 @@
 #!/bin/bash
+#Maintainer Suraj Nair
 
-
-echo -e "Nagios Client installation script in progress.
----------Please run this script on a newly installed/clean system\n"
+echo -e "---------Please run this script on a newly installed/clean system\n
+---------Nagios Client installation script in progress."
 
 read -p "Please enter the Nagios Monitoring server IP address: " IP
 
